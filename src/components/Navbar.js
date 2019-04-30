@@ -10,18 +10,14 @@ const NavBar = styled.div`
   align-items: center;
 `
 
-class Navbar extends React.Component {
-    render () {
-    return (
-      <NavBar>
-        {
-          navOptions.map(opt => {
+const Navbar = () => (
+    <NavBar>
+      {
+        navOptions.map(opt => {
           return <NavigationButton key={opt.key} options={opt} />
-          })
-        }
-      </NavBar>
-    )
-  }
-}
+        })
+      }
+    </NavBar>
+)
 
 export default Navbar
