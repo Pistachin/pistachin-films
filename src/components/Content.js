@@ -1,6 +1,7 @@
 import React from 'react'
 import AboutText from './About'
 import ContactForm from './Contact'
+import Projects from './Projects'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
@@ -26,8 +27,11 @@ const ProtoContentContainer = ({ visibleContent, contentType }) => {
         case 'contact':
             result = <ContactForm />
             break;
+        case 'projects':
+            result = <Projects />
+            break;
         default:
-            result = <span></span>
+            result = <h4>You should be redirected to our social network</h4>
     }
     return (
         visibleContent ?  (

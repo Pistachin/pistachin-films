@@ -3,9 +3,16 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { showContent } from '../redux/actions/index'
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         showContent: status => dispatch(showContent(status))
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        visibleContent: state.visibleContent,
+        contentType: state.contentType
     }
 }
 
@@ -17,29 +24,36 @@ class Button extends React.Component {
     constructor() {
         super()
 
-        this.state = {
-            visibleContent: false,
-            contentType: ''
-        }
     }
 
     setContent = (e) => {
-        e.preventDefault()
+        if (e.target.classList.value.includes('internal')) {
+            e.preventDefault()
+        }
         const { options } = this.props
-        const contentType = options.name.toLowerCase()
-        this.props.showContent({ contentType })
-        // this.setState(state => ( { contentType: options.category } ))
+        let customContent = {
+            visibleContent: !this.props.visibleContent,
+            contentType: options.name.toLowerCase()
+        }
+        this.switchContent(customContent)
+    }
+
+    switchContent = (status) => {
+        let potato = this.props
+        if (status.contentType !== this.props.contentType && this.props.contentType.length > 1) {
+            status.visibleContent = true
+        }
+        this.props.showContent(status)
     }
 
     render () {
         const { options } = this.props
         return(
-            <NavButton id={options.key}>
+            <NavButton id={options.key} onClick={this.setContent}>
             {
                 options.url.includes('#') ? (
                     <p
                     className='nav-button internal'
-                    onClick={this.setContent}
                     >
                     {options.name}
                     </p>
@@ -50,7 +64,9 @@ class Button extends React.Component {
                     href={options.url}
                     target='_blank'
                     >
-                    {options.name}
+                    {
+                        options.name
+                    }
                     </a>
                 )
             }
@@ -59,6 +75,6 @@ class Button extends React.Component {
     }
 }
 
-const NavigationButton = connect(null, mapDispatchToProps)(Button)
+const NavigationButton = connect(mapStateToProps, mapDispatchToProps)(Button)
 
 export default NavigationButton

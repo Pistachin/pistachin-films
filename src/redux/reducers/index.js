@@ -8,8 +8,9 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
 	if (action.type === SHOW_CONTENT) {
+		console.log(action.payload.visibleContent);
 		return Object.assign({}, state, {
-			visibleContent: !state.visibleContent,
+			visibleContent: action.payload.visibleContent,
 			contentType: action.payload.contentType
 		})
 	}

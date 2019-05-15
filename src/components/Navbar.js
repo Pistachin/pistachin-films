@@ -8,6 +8,11 @@ const NavBar = styled.div`
   display: flex;
   flex-width: 100%;
   align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+  }
 `
 
 const Navbar = () => (

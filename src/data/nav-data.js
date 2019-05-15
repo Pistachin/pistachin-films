@@ -19,6 +19,11 @@ const navOptions = [
     name: 'About',
     url: '#'
   },
+  {
+    key: 'opt-05',
+    name: 'Projects',
+    url: '#'
+  },
 ]
 
 export default navOptions
