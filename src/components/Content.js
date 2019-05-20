@@ -13,12 +13,18 @@ const mapStateToProps = state => {
 }
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: scroll;
+
+    @media only screen and (min-width: 900px) {
+        overflow-y: visible;
+    }
 `
 
 const ProtoContentContainer = ({ visibleContent, contentType }) => {
+    let social = contentType.charAt(0).toUpperCase() + contentType.slice(1)
     let result = ''
     switch (contentType) {
         case 'about':
@@ -31,7 +37,7 @@ const ProtoContentContainer = ({ visibleContent, contentType }) => {
             result = <Projects />
             break;
         default:
-            result = <h4>You should be redirected to our social network</h4>
+            result = <h4>You should be redirected to our {social} page</h4>
     }
     return (
         visibleContent ?  (

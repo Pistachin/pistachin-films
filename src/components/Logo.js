@@ -11,12 +11,17 @@ const PistaLogo = styled.img`
   width: 350px;
   height: 350px;
 
-@media (max-width: 420px) {
+@media only screen and (max-width: 600px) {
     width: 150px;
     height: 150px;
 }
-`
 
+@media only screen and (min-width: 600px) and (max-width: 900px) and (orientation: landscape) {
+    flex-basis: 50%;
+    width: 250px;
+    height: 250px;
+}
+`
 
 class Logo extends React.Component {
   render () {

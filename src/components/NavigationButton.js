@@ -39,7 +39,6 @@ class Button extends React.Component {
     }
 
     switchContent = (status) => {
-        let potato = this.props
         if (status.contentType !== this.props.contentType && this.props.contentType.length > 1) {
             status.visibleContent = true
         }
