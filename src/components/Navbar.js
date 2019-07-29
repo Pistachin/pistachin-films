@@ -9,6 +9,7 @@ const NavBar = styled.div`
     flex-width: 100%;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
 
     @media only screen and (max-width: 600px) {
         flex-direction: column;

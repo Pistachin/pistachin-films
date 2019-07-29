@@ -5,6 +5,8 @@ import styled from 'styled-components'
 
 const LogoContainer = styled.div`
   align-self: center;
+  position: absolute;
+  top: 0;
 `
 
 const PistaLogo = styled.img`
