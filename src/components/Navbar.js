@@ -8,6 +8,7 @@ const NavBar = styled.div`
   display: flex;
   flex-width: 100%;
   align-items: center;
+  position: relative;
 `
 
 class Navbar extends React.Component {

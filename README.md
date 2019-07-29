@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About
+
+This is merely a personal project, created to eventually upload to a server and
+work as a portfolio, both as a filmmaker and developer, but so far is just to
+show some of what I know about React. 
+
 ## Available Scripts
 
 In the project directory, you can run:

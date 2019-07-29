@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 const LogoContainer = styled.div`
   align-self: center;
+  position: absolute;
+  top: 0;
 `
 
 class Logo extends React.Component {
